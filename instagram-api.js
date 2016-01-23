@@ -58,7 +58,14 @@ function setupInstagram() {
     Instagram.authenticate();
 };
 
+var accTok = window.location.hash.substr(1);
+var tokArray = accTok.split('=');
 
+if (tokArray.indexOf("error") == -1){
+    Instagram.config.access_token = opt.tokArray[1];
+} else {
+    console.log(accTok);
+}
 
 //$( document ).ready(function() {
 //
