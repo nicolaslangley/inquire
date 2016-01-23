@@ -1,4 +1,4 @@
-var get_tags = function(url, access_token) {
+var get_tags = function (url, access_token) {
     var xhr = new XMLHttpRequest();
     xhr.open('POST', 'https://api.clarifai.com/v1/tag/', true);
     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
@@ -7,18 +7,18 @@ var get_tags = function(url, access_token) {
         var json = JSON.parse(this.responseText);
         console.log(json.results[0].result.tag.classes);
     };
-    var args = 'url='+encodeURIComponent('http://www.clarifai.com/img/metro-north.jpg');
+    var args = 'url='+encodeURIComponent(url);
     xhr.send(args);
 };
 
-var get_access_token = function () {
+var get_access_token = function (url) {
   var xhr = new XMLHttpRequest();
   xhr.open('POST', 'https://api.clarifai.com/v1/token/', true);
   xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
   xhr.onload = function () {
       console.log(this.responseText);
       var json = JSON.parse(this.responseText);
-      get_tags('', json.access_token);
+      get_tags(url, json.access_token);
   };
   var client_id = '2pQ-VC_WShPuIXrCAL0iRGkFivooTFPxGG4E_sAb';
   var client_secret = 'YFLB3wd2H6BI3qSj0hj-EXltsZFvobwash5v4lmr';
@@ -26,6 +26,12 @@ var get_access_token = function () {
   xhr.send(args);
 };
 
-get_access_token();
+var url = 'http://www.clarifai.com/img/metro-north.jpg';
+if (typeof getPhotos != undefined) {
+    getPhotos(function( photos ) {
+        console.log( photos );
+        get_access_token(photos.url);
+    });
+}
 
 

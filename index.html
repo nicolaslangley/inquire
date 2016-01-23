@@ -17,6 +17,7 @@
 
   </head>
   <body>
+    <script src="facebook-api.js"></script>
 
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
@@ -44,7 +45,8 @@
       <div class="starter-template">
         <h1>Login to Instagram</h1>
         <br>
-        <button class="btn btn-default" type="submit">Login</button>
+        <button class="btn btn-default" type="submit" onclick="checkLoginState()">Login</button>
+        <div id="status"></div>
       </div>
 
     </div><!-- /.container -->
