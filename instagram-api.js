@@ -34,7 +34,7 @@ window.Instagram = {
     authenticate: function(){
     	var client_id = this.config.client_id;
     	var redirect_uri = 'http://localhost:63342/Inquire/display.html';
-    	window.location.replace('https://api.instagram.com/oauth/authorize/?client_id='+ client_id +'&redirect_uri=' + redirect_uri + '&response_type=token');
+    	window.location.assign('https://api.instagram.com/oauth/authorize/?client_id='+ client_id +'&redirect_uri=' + redirect_uri + '&response_type=token');
 
     },
 

@@ -26,3 +26,7 @@ function setupFacebookSDK() {
         fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
 };
+
+function moveToDisplay() {
+    window.location.assign('http://localhost:63342/Inquire/display.html');
+}
