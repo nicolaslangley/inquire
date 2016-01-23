@@ -1,48 +1,3 @@
-function statusChangeCallback(response) {
-    console.log('statusChangeCallback');
-    console.log(response);
-    // The response object is returned with a status field that lets the
-    // app know the current login status of the person.
-    // Full docs on the response object can be found in the documentation
-    // for FB.getLoginStatus().
-    if (response.status === 'connected') {
-        // Logged into your app and Facebook.
-        console.log('Connected to Facebook!');
-        if (typeof getPhotos != undefined) {
-            getPhotos(function( photos ) {
-                console.log(photos);
-                get_access_token(photos[0].url);
-            });
-        }
-    } else if (response.status === 'not_authorized') {
-        // The person is logged into Facebook, but not your app.
-        document.getElementById('status').innerHTML = 'Please log ' +
-            'into this app.';
-    } else {
-        // The person is not logged into Facebook, so we're not sure if
-        // they are logged into this app or not.
-        document.getElementById('status').innerHTML = 'Please log ' +
-            'into Facebook.';
-    }
-}
-
-function checkLoginState() {
-    FB.getLoginStatus(function(response) {
-        statusChangeCallback(response);
-    });
-}
-
-function testAPI() {
-    console.log('Welcome!  Fetching your information.... ');
-    FB.api('/me/albums', function(response) {
-        console.log(response);
-        console.log('Successful login for: ' + response.name);
-        document.getElementById('status').innerHTML =
-            'Thanks for logging in, ' + response.name + '!';
-    });
-}
-
-
 // Facebook SDK Init
 window.fbAsyncInit = function() {
     FB.init({
@@ -51,9 +6,12 @@ window.fbAsyncInit = function() {
         version    : 'v2.5'
     });
 
-    FB.getLoginStatus(function(response) {
-        statusChangeCallback(response);
-    });
+    if (typeof getPhotos != undefined) {
+        getPhotos(function( photos ) {
+            console.log(photos);
+            get_access_token(photos[0].url);
+        });
+    }
 };
     
 (function(d, s, id){
