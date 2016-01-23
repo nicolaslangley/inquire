@@ -63,11 +63,11 @@ function setupInstagram() {
 var accTok = window.location.hash.substr(1);
 var tokArray = accTok.split('=');
 
-if (tokArray.indexOf("error") == -1){
+if (tokArray.indexOf("error") == -1 && tokArray.indexOf("access_token") != -1){
     Instagram.config.access_token = tokArray[1];
     console.log('Instagram authenticated successfully!');
     Instagram.recentMedia(function( response ) {
-        var $instagram = $( '#instagram' );
+        var $instagram = $( '#results' );
         for ( var i = 0; i < response.data.length; i++ ) {
             imageUrl = response.data[i].images.low_resolution.url;
             $instagram.append( '<img src="' + imageUrl + '" />' );

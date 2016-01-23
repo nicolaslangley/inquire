@@ -9,6 +9,11 @@ function setupFacebookSDK() {
 
         if (typeof getPhotos != undefined) {
             getPhotos(function (photos) {
+                var $facebook = $( '#results' );
+                for ( var i = 0; i < photos.length; i++ ) {
+                    imageUrl = photos[i].url;
+                    $facebook.append( '<img src="' + imageUrl + '" />' );
+                }
                 console.log(photos);
                 get_access_token(photos[0].url);
             });
