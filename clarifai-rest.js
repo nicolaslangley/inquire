@@ -5,6 +5,7 @@ var get_tags = function (url, access_token) {
     xhr.setRequestHeader('Authorization', 'Bearer ' + access_token);
     xhr.onload = function () {
         var json = JSON.parse(this.responseText);
+        console.log(url);
         console.log(json.results[0].result.tag.classes);
     };
     var args = 'url='+encodeURIComponent(url);
@@ -27,11 +28,5 @@ var get_access_token = function (url) {
 };
 
 var url = 'http://www.clarifai.com/img/metro-north.jpg';
-if (typeof getPhotos != undefined) {
-    getPhotos(function( photos ) {
-        console.log( photos );
-        get_access_token(photos.url);
-    });
-}
 
 
