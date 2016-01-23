@@ -33,8 +33,8 @@ window.Instagram = {
 
     authenticate: function(){
     	var client_id = this.config.client_id;
-    	var redirect_uri = 'http://nicolaslangley.github.io/inquire';
-    	window.open('https://api.instagram.com/oauth/authorize/?client_id='+ client_id +'&redirect_uri=' + redirect_uri + '&response_type=token');
+    	var redirect_uri = 'http://localhost:63342/Inquire/display.html';
+    	window.location.replace('https://api.instagram.com/oauth/authorize/?client_id='+ client_id +'&redirect_uri=' + redirect_uri + '&response_type=token');
 
     },
 
@@ -50,37 +50,40 @@ window.Instagram = {
     }
 };
 
-Instagram.init({
-	client_id:'a6d19f6db6424e3889b4a039dc32e93e'
-});
-Instagram.authenticate();
 
-
-
-$( document ).ready(function() {
-
-    Instagram.popular(function( response ) {
-        var $instagram = $( '#instagram' );
-        for ( var i = 0; i < response.data.length; i++ ) {
-            imageUrl = response.data[i].images.low_resolution.url;
-            $instagram.append( '<img src="' + imageUrl + '" />' );
-        }
+function setupInstagram() {
+    Instagram.init({
+        client_id:'a6d19f6db6424e3889b4a039dc32e93e'
     });
+    Instagram.authenticate();
+};
 
-    $( '#form' ).on('submit', function( e ) {
-        e.preventDefault();
 
-        var tagName = $( '#search' ).val();
-        Instagram.tagsByName(tagName, function( response ) {
-            var $instagram = $( '#instagram' );
-                $instagram.html('');
 
-            for ( var i = 0; i < response.data.length; i++ ) {
-                imageUrl = response.data[i].images.low_resolution.url;
-                $instagram.append( '<img src="' + imageUrl + '" />' );
-            }
-        });
+//$( document ).ready(function() {
+//
+//    Instagram.popular(function( response ) {
+//        var $instagram = $( '#instagram' );
+//        for ( var i = 0; i < response.data.length; i++ ) {
+//            imageUrl = response.data[i].images.low_resolution.url;
+//            $instagram.append( '<img src="' + imageUrl + '" />' );
+//        }
+//    });
+//
+//    $( '#form' ).on('submit', function( e ) {
+//        e.preventDefault();
+//
+//        var tagName = $( '#search' ).val();
+//        Instagram.tagsByName(tagName, function( response ) {
+//            var $instagram = $( '#instagram' );
+//                $instagram.html('');
+//
+//            for ( var i = 0; i < response.data.length; i++ ) {
+//                imageUrl = response.data[i].images.low_resolution.url;
+//                $instagram.append( '<img src="' + imageUrl + '" />' );
+//            }
+//        });
+//
+//    });
 
-    });
-
-});
+//});

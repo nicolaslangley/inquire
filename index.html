@@ -19,6 +19,7 @@
   <body>
     <!-- Custom scripts for loading Facebook photos and passing to Clarifai -->
     <script src="clarifai-rest.js"></script>
+    <script src="instagram-api.js"></script>
     <script src="facebook-photos.js"></script>
     <script src="facebook-api.js"></script>
 
@@ -46,9 +47,8 @@
     <div class="container">
 
       <div class="starter-template">
-        <h1>Login to Instagram</h1>
-        <br>
-        <button class="btn btn-default" type="submit" onclick="checkLoginState()">Login</button>
+        <button class="btn btn-default" type="submit" onclick="setupFacebookSDK()">Login to Facebook</button>
+        <button class="btn btn-default" type="submit" onclick="setupInstagram()">Login to Instagram</button>
         <div id="status"></div>
       </div>
 
