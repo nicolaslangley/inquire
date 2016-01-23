@@ -17,8 +17,10 @@ window.Instagram = {
      * https://api.instagram.com/v1/users/self/media/recent/?access_token=ACCESS-TOKEN
      */
      
-    popular: function(callback) {
-        var endpoint = this.BASE_URL + 'users/self/media/recent?access_token=' + this.config.access_token;
+    recentMedia: function(callback) {
+        var endpoint = this.BASE_URL + '/users/self/media/recent?access_token=' + this.config.access_token;
+        console.log(endpoint);
+        console.log(this.config.access_token);
         this.getJSON( endpoint, callback );
     },
 
@@ -26,7 +28,7 @@ window.Instagram = {
      * Get the list of recent media liked by the owner of the access_token.
      * https://api.instagram.com/v1/users/self/media/liked?access_token=ACCESS-TOKEN
      */
-    tagsByName: function(callback) {
+    likedMedia: function(callback) {
         var endpoint = this.BASE_URL + '/users/self/media/liked?access_token=' + this.config.access_token;
         this.getJSON( endpoint, callback );
     },
@@ -62,9 +64,18 @@ var accTok = window.location.hash.substr(1);
 var tokArray = accTok.split('=');
 
 if (tokArray.indexOf("error") == -1){
-    Instagram.config.access_token = opt.tokArray[1];
+    Instagram.config.access_token = tokArray[1];
+    console.log('Instagram authenticated successfully!');
+    Instagram.recentMedia(function( response ) {
+        var $instagram = $( '#instagram' );
+        for ( var i = 0; i < response.data.length; i++ ) {
+            imageUrl = response.data[i].images.low_resolution.url;
+            $instagram.append( '<img src="' + imageUrl + '" />' );
+        }
+    });
 } else {
     console.log(accTok);
+    setupFacebookSDK();
 }
 
 //$( document ).ready(function() {
