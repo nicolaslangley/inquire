@@ -11,6 +11,9 @@ var get_tags = function (url, access_token) {
         });
         if (window.global_count == window.global_data.length) {
             console.log(window.global_data);
+            window.localStorage.setItem("tags", JSON.stringify(window.global_data));
+            console.log(window.localStorage.getItem("tags"));
+            var tags = JSON.parse(window.localStorage.getItem("tags"));
             // Handle moving to next stage because all data has arrived
         }
     };

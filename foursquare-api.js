@@ -28,7 +28,11 @@ window.Foursquare = {
         console.log("Authenticating");
         var client_id = this.config.client_id;
         var redirect_uri = 'http://localhost:63342/Inquire/recommendations.html';
-        window.location.assign('https://foursquare.com/oauth2/authenticate/' +
+        //window.location.assign('https://foursquare.com/oauth2/authenticate/' +
+        //                        '?client_id='+ client_id +
+        //                        '&response_type=token' +
+        //                        '&redirect_uri='+ redirect_uri);
+        window.open('https://foursquare.com/oauth2/authenticate/' +
                                 '?client_id='+ client_id +
                                 '&response_type=token' +
                                 '&redirect_uri='+ redirect_uri);
@@ -63,10 +67,18 @@ function showPosition(position) {
 }
 
 function resultsCallback() {
-    Foursquare.searchVenues('mountain', function(response) {
-        console.log(response);
+    console.log(window.localStorage.getItem("tags"));
+    var tags = JSON.parse(window.localStorage.getItem("tags"));
+    console.log(tags);
+    Foursquare.searchVenues(tags[0].value[0], function(response) {
+        console.log(response.response.venues);
+        var numEntries = response.response.venues.length;
+        for (var i = 0; i < numEntries; i++) {
+            $('#row'+i).html("<td>"+ response.response.venues[i].name +"</td>");
+            $('#results-inner-table').append('<tr id="row'+(i+1)+'"></tr>');
+        }
+        // Handle results..
     });
-    // Handle results..
 }
 
 // Initialize the app's client_id
