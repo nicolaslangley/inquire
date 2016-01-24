@@ -7,7 +7,6 @@ window.Spotify = {
     config: {},
     BASE_URL: 'https://api.spotify.com/v1/',
     TOP_RESULT: 'hype',
-    //CLIENT_ID: '7b0c575678ee4c8c9487c525afc3d46f',
 
     init: function(opt) {
         opt = opt || {};
@@ -15,7 +14,7 @@ window.Spotify = {
     },
 
     // Get a list of playlists based on input word from Clarifai
-    //"https://api.spotify.com/v1/search?q="doom metal"&type=playlist"
+    //Example url: "https://api.spotify.com/v1/search?q="doom metal"&type=playlist"
     getPlaylist: function(callback) {
 
         var endpoint = this.BASE_URL + 'search?q="' +this.TOP_RESULT+'"&type=playlist';
@@ -23,7 +22,7 @@ window.Spotify = {
         this.getJSON( endpoint, callback );
     },
 
-    // GET request to obtain photo information
+    // GET request to obtain playlist information
     getJSON: function( url, callback ) {
         $.ajax({
             type: 'GET',
@@ -36,10 +35,18 @@ window.Spotify = {
     }
 };
 
-
-    Spotify.getPlaylist(function(response) {
-            console.log(response.playlists);
+// Initialize the app's client_id
+function runSpotify() {
+    Spotify.init({
+        client_id:'7b0c575678ee4c8c9487c525afc3d46f'
     });
+};
+
+
+Spotify.getPlaylist(function(response) {
+// Prints url for playlist of first item related to keyword search
+    console.log(response.playlists.items[0].external_urls);
+});
 
 
 
