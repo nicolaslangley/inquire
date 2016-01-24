@@ -43,10 +43,15 @@ function runSpotify() {
 };
 
 
-Spotify.getPlaylist(function(response) {
-// Prints url for playlist of first item related to keyword search
-    console.log(response.playlists.items[0].external_urls);
-});
+function querySpotifyPlaylist() {
+    var tags = JSON.parse(window.localStorage.getItem("tags"));
+    console.log(tags);
+    Spotify.TOP_RESULT = tags[0].value[0];
+    Spotify.getPlaylist(function(response) {
+        // Prints url for playlist of first item related to keyword search
+        console.log(response.playlists.items[0].external_urls);
+    });
+}
 
 
 
