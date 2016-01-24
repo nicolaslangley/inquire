@@ -14,8 +14,8 @@ function setupFacebookSDK() {
                 window.global_count = numOfImages;
                 for ( var i = 0; i < numOfImages; i++ ) {
                     imageUrl = photos[i].url;
-                    get_access_token(imageUrl);
-                    $facebook.append( '<img src="' + imageUrl + '" />' );
+					get_access_token(imageUrl);
+                    $facebook.append( '<img class="img-500" src="' + imageUrl + '" />' );
                 }
             });
         }
