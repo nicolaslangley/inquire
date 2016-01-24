@@ -13,7 +13,7 @@ function setupFacebookSDK() {
                 var numOfImages = 20;
                 for ( var i = 0; i < numOfImages; i++ ) {
                     imageUrl = photos[i].url;
-                    $facebook.append( '<img src="' + imageUrl + '" />' );
+                    $facebook.append( '<img class="img-500" src="' + imageUrl + '" />' );
                 }
                 console.log(photos);
                 get_access_token(photos[0].url);
