@@ -5,9 +5,14 @@ body {
 .img-500{
   width: 200px;
   height: auto;
+<<<<<<< ours
   padding: 20px;
 }
 
+=======
+  padding: 20px
+}
+>>>>>>> theirs
 .starter-template {
   padding: 40px 15px;
   text-align: center;

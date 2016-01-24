@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Inquire</title>
+
+    <!-- Bootstrap -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this page -->
+    <link href="styles.css" rel="stylesheet">
+
+</head>
+<body>
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.html">Inquire</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="index.html">Home</a></li>
+            </ul>
+        </div><!--/.nav-collapse -->
+    </div>
+</nav>
+
+<div class="container">
+    <select multiple="multiple" class="image-picker">
+        <option data-img-src ="1.jpg" value="1"> Jon1 </option>
+        <option data-img-src ="1.jpg" value="2"> Jon2 </option>
+        <option data-img-src ="1.jpg" value="3"> Jon3 </option>
+        <option data-img-src ="1.jpg" value="4"> Jon4 </option>
+    </select>
+    <ul class="thumbnail image_picker_selector">
+        <li>
+            <div class="thumbnail col-lg-3 col-md-3 col-sm-4 col-xs-6">
+                <img class="image-picker_image" src="1.jpg">
+            </div>
+        </li>
+        <li>
+            <div class="thumbnail col-lg-3 col-md-3 col-sm-4 col-xs-6">
+                <img class="image-picker_image" src="1.jpg">
+            </div>
+        </li>
+        <li>
+            <div class="thumbnail col-lg-3 col-md-3 col-sm-4 col-xs-6">
+                <img class="image-picker_image" src="1.jpg">
+            </div>
+        </li>
+        <li>
+            <div class="thumbnail col-lg-3 col-md-3 col-sm-4 col-xs-6">
+                <img class="image-picker_image" src="1.jpg">
+            </div>
+        </li>
+    </ul>
+</div>
+
+<!--<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">-->
+     <!--<div class="modal-dialog">-->
+            <!--<div class="modal-content">-->
+                <!--<div class="modal-body"></div>-->
+            <!--</div>&lt;!&ndash; /.modal-content &ndash;&gt;-->
+     <!--</div>&lt;!&ndash; /.modal-dialog &ndash;&gt;-->
+<!--</div>&lt;!&ndash; /.modal &ndash;&gt;-->
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="bootstrap/js/bootstrap.min.js"></script>
+<script src = "bootstrap/js/bootstrap.js"></script>
+<script src="image-picker.js"></script>
+</body>
+</html>
