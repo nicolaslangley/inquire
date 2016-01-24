@@ -1,8 +1,25 @@
 body {
   padding-top: 50px;
 }
+
+.img-500{
+  width: 200px;
+  height: auto;
+  padding: 20px;
+}
+
 .starter-template {
   padding: 40px 15px;
   text-align: center;
+}
+
+.myCarousel {
+  padding-top: 2cm;
+  padding: 40px 40px;
+  text-align: center;
+}
+.carousel-inner {
+  width: 100%;
+  height: 200%;
 }
 
