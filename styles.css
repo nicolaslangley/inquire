@@ -1,11 +1,11 @@
 body {
   padding-top: 50px;
-
 }
 
 .img-500{
   width: 200px;
   height: auto;
+  padding: 20px
 }
 .starter-template {
   padding: 40px 15px;
