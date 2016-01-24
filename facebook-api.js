@@ -34,5 +34,5 @@ function setupFacebookSDK() {
 };
 
 function moveToDisplay() {
-    window.location.assign('http://localhost:63342/Inquire/display.html');
+    window.location.assign('http://nicolaslangley.github.io/inquire/display.html');
 }

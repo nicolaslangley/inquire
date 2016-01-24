@@ -30,7 +30,7 @@ window.Instagram = {
     //Display the authentication screen
     authenticate: function(){
     	var client_id = this.config.client_id;
-    	var redirect_uri = 'http://localhost:63342/Inquire/display.html';
+    	var redirect_uri = 'http://nicolaslangley.github.io/inquire/display.html';
     	window.location.assign('https://api.instagram.com/oauth/authorize/?client_id='+ client_id +'&redirect_uri=' + redirect_uri + '&response_type=token');
 
     },
