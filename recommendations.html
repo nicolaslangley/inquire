@@ -19,10 +19,8 @@
 <body>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<!--<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>-->
-<script type="text/javascript" src="http://oauth.googlecode.com/svn/code/javascript/oauth.js"></script>
-<script type="text/javascript" src="http://oauth.googlecode.com/svn/code/javascript/sha1.js"></script>
-<script src="yelp-api.js"></script>
+<script src="foursquare-api.js"></script>
+<script>handlePostAuthentication()</script>
 
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
@@ -46,10 +44,17 @@
 </nav>
 
 <div class="container">
-    <div class="starter-template" id="results">
-        <button class="btn btn-default" type="submit">Generate Spotify Playlist</button>
-        <button class="btn btn-default" type="submit" onclick="getLocation()">Local Recommendations from Yelp</button>
-        <br>
+    <div class="table-responsive" id="results">
+        <table class="table" id="results-inner-table">
+            <thead>
+            <tr>
+                <th>Row</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+            </tr>
+            </thead>
+        </table>
     </div>
 
 
