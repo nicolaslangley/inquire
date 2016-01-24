@@ -27,7 +27,7 @@ window.Foursquare = {
     authenticate: function(){
         console.log("Authenticating");
         var client_id = this.config.client_id;
-        var redirect_uri = 'http://localhost:63342/Inquire/recommendations.html';
+        var redirect_uri = 'http://nicolaslangley.github.io/inquire/recommendations.html';
         //window.location.assign('https://foursquare.com/oauth2/authenticate/' +
         //                        '?client_id='+ client_id +
         //                        '&response_type=token' +
