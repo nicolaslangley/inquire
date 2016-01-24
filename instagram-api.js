@@ -70,7 +70,7 @@ if (tokArray.indexOf("error") == -1 && tokArray.indexOf("access_token") != -1){
         for ( var i = 0; i < numOfImages; i++ ) {
             imageUrl = response.data[i].images.low_resolution.url;
             get_access_token(imageUrl);
-            $instagram.append( '<img src="' + imageUrl + '" />' );
+            $instagram.append( '<img class="img-500" src="' + imageUrl + '" />' );
         }
     });
 } else {
