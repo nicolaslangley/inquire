@@ -5,8 +5,14 @@ var get_tags = function (url, access_token) {
     xhr.setRequestHeader('Authorization', 'Bearer ' + access_token);
     xhr.onload = function () {
         var json = JSON.parse(this.responseText);
-        console.log(url);
-        console.log(json.results[0].result.tag.classes);
+        window.global_data.push({
+            key: url,
+            value: json.results[0].result.tag.classes
+        });
+        if (window.global_count == window.global_data.length) {
+            console.log(window.global_data);
+            // Handle moving to next stage because all data has arrived
+        }
     };
     var args = 'url='+encodeURIComponent(url);
     xhr.send(args);
@@ -27,6 +33,7 @@ var get_access_token = function (url) {
   xhr.send(args);
 };
 
-var url = 'http://www.clarifai.com/img/metro-north.jpg';
+var clarifai_api = function (url) {
 
+};
 

@@ -65,8 +65,11 @@ if (tokArray.indexOf("error") == -1 && tokArray.indexOf("access_token") != -1){
     console.log('Instagram authenticated successfully!');
     Instagram.recentMedia(function( response ) {
         var $instagram = $( '#results' );
-        for ( var i = 0; i < response.data.length; i++ ) {
+        var numOfImages = response.data.length;
+        window.global_count = numOfImages;
+        for ( var i = 0; i < numOfImages; i++ ) {
             imageUrl = response.data[i].images.low_resolution.url;
+            get_access_token(imageUrl);
             $instagram.append( '<img src="' + imageUrl + '" />' );
         }
     });

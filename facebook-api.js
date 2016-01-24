@@ -11,12 +11,12 @@ function setupFacebookSDK() {
             getPhotos(function (photos) {
                 var $facebook = $( '#results' );
                 var numOfImages = 20;
+                window.global_count = numOfImages;
                 for ( var i = 0; i < numOfImages; i++ ) {
                     imageUrl = photos[i].url;
+                    get_access_token(imageUrl);
                     $facebook.append( '<img src="' + imageUrl + '" />' );
                 }
-                console.log(photos);
-                get_access_token(photos[0].url);
             });
         }
     };
