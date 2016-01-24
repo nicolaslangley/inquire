@@ -10,7 +10,8 @@ function setupFacebookSDK() {
         if (typeof getPhotos != undefined) {
             getPhotos(function (photos) {
                 var $facebook = $( '#results' );
-                for ( var i = 0; i < photos.length; i++ ) {
+                var numOfImages = 20;
+                for ( var i = 0; i < numOfImages; i++ ) {
                     imageUrl = photos[i].url;
                     $facebook.append( '<img src="' + imageUrl + '" />' );
                 }
