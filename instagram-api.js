@@ -1,7 +1,6 @@
+
 window.Instagram = {
-    /**
-     * Store application settings
-     */
+    // Store app settings
     config: {},
 
     BASE_URL: 'https://api.instagram.com/v1',
@@ -12,11 +11,8 @@ window.Instagram = {
         this.config.client_id = opt.client_id;
     },
 
-    /**
-     * Get the most recent media published by the owner of the access_token.
-     * https://api.instagram.com/v1/users/self/media/recent/?access_token=ACCESS-TOKEN
-     */
-     
+    //Get the most recent media published by the owner of the access_token.
+    //https://api.instagram.com/v1/users/self/media/recent/?access_token=ACCESS-TOKEN
     recentMedia: function(callback) {
         var endpoint = this.BASE_URL + '/users/self/media/recent?access_token=' + this.config.access_token;
         console.log(endpoint);
@@ -24,15 +20,14 @@ window.Instagram = {
         this.getJSON( endpoint, callback );
     },
 
-    /**
-     * Get the list of recent media liked by the owner of the access_token.
-     * https://api.instagram.com/v1/users/self/media/liked?access_token=ACCESS-TOKEN
-     */
+    //Get the list of recent media liked by the owner of the access_token.
+    //https://api.instagram.com/v1/users/self/media/liked?access_token=ACCESS-TOKEN
     likedMedia: function(callback) {
         var endpoint = this.BASE_URL + '/users/self/media/liked?access_token=' + this.config.access_token;
         this.getJSON( endpoint, callback );
     },
 
+    //Display the authentication screen
     authenticate: function(){
     	var client_id = this.config.client_id;
     	var redirect_uri = 'http://localhost:63342/Inquire/display.html';
@@ -40,6 +35,7 @@ window.Instagram = {
 
     },
 
+    // GET request to obtain photo information
     getJSON: function( url, callback ) {
         $.ajax({
             type: 'GET',
@@ -52,7 +48,7 @@ window.Instagram = {
     }
 };
 
-
+// Initialize the app's client_id
 function setupInstagram() {
     Instagram.init({
         client_id:'a6d19f6db6424e3889b4a039dc32e93e'
@@ -60,6 +56,7 @@ function setupInstagram() {
     Instagram.authenticate();
 };
 
+// Set up access_token for GET request urls
 var accTok = window.location.hash.substr(1);
 var tokArray = accTok.split('=');
 
@@ -77,31 +74,3 @@ if (tokArray.indexOf("error") == -1 && tokArray.indexOf("access_token") != -1){
     console.log(accTok);
     setupFacebookSDK();
 }
-
-//$( document ).ready(function() {
-//
-//    Instagram.popular(function( response ) {
-//        var $instagram = $( '#instagram' );
-//        for ( var i = 0; i < response.data.length; i++ ) {
-//            imageUrl = response.data[i].images.low_resolution.url;
-//            $instagram.append( '<img src="' + imageUrl + '" />' );
-//        }
-//    });
-//
-//    $( '#form' ).on('submit', function( e ) {
-//        e.preventDefault();
-//
-//        var tagName = $( '#search' ).val();
-//        Instagram.tagsByName(tagName, function( response ) {
-//            var $instagram = $( '#instagram' );
-//                $instagram.html('');
-//
-//            for ( var i = 0; i < response.data.length; i++ ) {
-//                imageUrl = response.data[i].images.low_resolution.url;
-//                $instagram.append( '<img src="' + imageUrl + '" />' );
-//            }
-//        });
-//
-//    });
-
-//});
