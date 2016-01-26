@@ -1,3 +1,18 @@
+function showModal(element) {
+    var src = element.src;
+    console.log(src);
+    console.log($(this));
+    var img = '<img src="' + src + '" class="img-responsive"/>';
+    $('#myModal').modal();
+    $('#myModal').on('shown.bs.modal', function(){
+        $('#myModal .modal-body').html(img);
+    });
+    $('#myModal').on('hidden.bs.modal', function(){
+        $('#myModal .modal-body').html('');
+    });
+}
+
+
 function setupFacebookSDK() {
     // Facebook SDK Init
     window.fbAsyncInit = function () {
@@ -15,7 +30,7 @@ function setupFacebookSDK() {
                 for ( var i = 0; i < numOfImages; i++ ) {
                     imageUrl = photos[i].url;
 					get_access_token(imageUrl);
-                    $facebook.append( '<img class="img-500" src="' + imageUrl + '" />' );
+                    $facebook.append( '<img class="img-500" onclick="showModal(this)" src="' + imageUrl + '" />' );
                 }
             });
         }
