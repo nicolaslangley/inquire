@@ -1,0 +1,9 @@
+.wrapper {
+    text-align: center;
+    margin-top: 15%;
+}
+.btn {
+    display: table;
+    margin: auto;
+    margin-top: 10px;
+}
